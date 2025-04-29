@@ -13,7 +13,9 @@ Plug 'https://github.com/chrisbra/unicode.vim.git'
 Plug 'vim-airline/vim-airline'
 Plug 'https://github.com/vim-airline/vim-airline-themes'
 let g:Unicode_URL = 'https://www.unicode.org/Public/UNIDATA/UnicodeData.txt'
-Plug 'https://github.com/gruvbox-community/gruvbox.git'
+"Plug 'https://github.com/gruvbox-community/gruvbox.git'
+"Plug 'Mofiqul/vscode.nvim'
+Plug 'tomasiser/vim-code-dark'
 Plug 'https://github.com/majutsushi/tagbar.git', { 'on': ['Tagbar', 'TagbarClose', 'TagbarCurrentTag', 'TagbarDebug', 'TarbarDebugEnd', 'TagbarGetTypeConfig', 'TagbarOpen', 'TagbarOpenAutoClose', 'TagbarSetFoldlevel', 'TagbarShowTag', 'TagbarToggle', 'TagbarTogglePause'] }
 let g:tagbar_compact = 1
 let g:tagbar_zoomwidth = 0
@@ -24,8 +26,11 @@ Plug 'https://github.com/octol/vim-cpp-enhanced-highlight'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.8' }
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 call plug#end()
-silent! colorscheme gruvbox
+"silent! colorscheme gruvbox
+"silent! colorscheme vscode
+silent! colorscheme codedark
 endif
 
 autocmd BufWrite * filetype detect
@@ -57,6 +62,9 @@ set spell
 set termguicolors
 set wildmode=longest:full,full
 set ignorecase
+set t_Co=256
+set t_ut=
+colorscheme codedark
 inoremap <C-S> <C-O>:update<CR>
 noremap <C-S> :update<CR>
 nmap <F8> :TagbarToggle<CR>
@@ -75,3 +83,5 @@ nnoremap <leader>ff <CMD>Telescope find_files<CR>
 nnoremap <leader>fg <CMD>Telescope live_grep<CR>
 nnoremap <leader>fb <CMD>Telescope buffers<CR>
 nnoremap <leader>fh <CMD>Telescope help_tags<CR>
+highlight Function gui=NONE guifg=#64bb99
+"highlight Function gui=NONE guifg=#4EC9B0

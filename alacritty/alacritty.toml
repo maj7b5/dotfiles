@@ -39,7 +39,8 @@ program="/home/dako/.nix-profile/bin/fish"
 size = 9.2
 
 [font.normal]
-family = "JetBrains Mono NL Thin"
+#family = "JetBrains Mono NL Thin"
+family = "Monocraft Nerd Font"
 style = "Regular"
 
 [[hints.enabled]]
@@ -100,3 +101,6 @@ mods = "Shift"
 [window.padding]
 x = 0
 y = 0
+
+[window]
+decorations="None"
