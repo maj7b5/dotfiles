@@ -1,0 +1,28 @@
+#!/bin/sh
+
+SOURCE="$HOME/.config"
+DOTFILES="$HOME/dotfiles"
+
+if [ ! -d "$DOTFILES" ]; then
+	echo "Warning: No dotfiles dir at $DOTFILES"
+	exit 1
+fi
+
+#Loop through repo, if dir in $SOURCE, update corresponding directory in repo.
+for dir in "$DOTFILES"/*; do
+	if	[ -d "$dir" ]; then
+		dir_name=$(basename "$dir")
+		
+		if [ -d "$SOURCE/$dir_name" ]; then
+			echo "Updating $dir_name from $SOURCE to $DOTFILES."
+            IGNORE="$dir/.rsyncignore"
+            if [ -f "$IGNORE" ]; then
+			    rsync -avq --delete --exclude-from "$SOURCE/$dir_name/.rsyncignore" "$SOURCE/$dir_name/" "$dir/" > /dev/null
+            else
+			    rsync -avq --delete "$SOURCE/$dir_name/" "$dir/" > /dev/null
+            fi
+		else
+			echo "$dir_name isn't in $SOURCE"
+		fi
+	fi
+done
