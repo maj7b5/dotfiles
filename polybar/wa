@@ -2,7 +2,7 @@
 
 BAR_PTH="/home/dako/.config/polybar"
 OUT="$BAR_PTH/last_wa.txt"
-APPID=$(cat ./wa_id)
+APPID=$(cat $BAR_PTH/wa_id)
 VIEWER="display"
 BG="transparent"
 FG="white"

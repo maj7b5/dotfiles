@@ -1,1 +1,1 @@
-6^3: 216
+integral of 2x dx: x^2
